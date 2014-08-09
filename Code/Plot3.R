@@ -1,0 +1,6 @@
+consumption_data <- read.csv("consumption_data.csv")
+consumption_data$datetime <- as.POSIXct(paste(consumption_data$Date,consumption_data$Time),format= "%d/%m/%Y %H:%M:%S")
+plot(consumption_data$datetime,consumption_data$Sub_metering_1,type="l",ylab="Energy Sub Metering",xlab="",col="Black")
+lines(consumption_data$datetime,consumption_data$Sub_metering_2,type="l",col="Red")
+lines(consumption_data$datetime,consumption_data$Sub_metering_3,type="l",col="Blue")
+legend("topright",legend=c("Sub_metering_1","Sub_metering_2","Sub_metering_3"),col=c("Black","Red","Blue"),cex=0.5,lty=1)
